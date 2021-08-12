@@ -4,7 +4,12 @@
 session_start();
 
 //Koneksi
-$conn = mysqli_connect('guestbook-db.cg6kuror6gvz.us-east-1.rds.amazonaws.com','admin','kelompokmonyet','guestbook');
+require_once realpath(__DIR__ . '/vendor/autoload.php');
+use Dotenv\Dotenv;
+$dotenv = Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
+$conn = mysqli_connect(getenv('DB_HOST'),getenv('DB_USERNAME'),getenv('DB_PASSWORD'),getenv('DB_NAME'));
 
 //Set timezone
 date_default_timezone_set("Asia/Bangkok");
