@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.7.16.min.js"></script>
+    <script src="js/amazon-cognito-auth.min.js"></script>
+    <script src="js/amazon-cognito-identity.min.js"></script>  
+    <script src="js/config.js"></script>
+    <script src="js/jquery-3.6.0.js"></script>
+    <script src="js/script.js"></script>
+    <title>Login</title>
+</head>
+<body>
+
+    <!-- <form> -->
+    <div class="loginbox">
+        <div id="logintext">Login</div>
+        <br>
+        <br>
+        <br>
+
+        <div class="email">
+            <div class="col">
+                Email
+            </div>
+            <div class="inputcol">
+                <!-- <input size="30" type="email" placeholder="example@example.com" name="email" class="form-control" required> -->
+                <input type="text" id="inputUsername"  placeholder="Email address" name="username" required autofocus>
+            </div>
+        </div>
+
+        <div class="password">
+            <div class="col">
+                Password
+            </div>
+            <div class="inputcol">
+                <!-- <input size="30" type="password" placeholder="Password" name="password" class="form-control" required> -->
+                <input type="password" id="inputPassword"  placeholder="Password" name="password" required>    
+            </div>
+        </div><br><br>
+
+        <!-- <div class="mt-4"><button type="submit" name="kirim" class="btn btn-primary">Login</button></div> -->
+        <button type="button" class="btn" onclick="signInButton()">Sign in</button>
+        <br><br>
+        <a href="register.html">Belum terdaftar?</a>
+
+
+    </div>
+    <!-- </form> -->
+    
+
+    <script>
+
+        function signInButton() {
+          
+          var authenticationData = {
+              Username : document.getElementById("inputUsername").value,
+              Password : document.getElementById("inputPassword").value,
+          };
+          
+          var authenticationDetails = new AmazonCognitoIdentity.AuthenticationDetails(authenticationData);
+          
+          var poolData = {
+              UserPoolId : _config.cognito.userPoolId,
+              ClientId : _config.cognito.clientId,
+          };
+          
+          var userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
+          
+          var userData = {
+              Username : document.getElementById("inputUsername").value,
+              Pool : userPool,
+          };
+          
+          var cognitoUser = new AmazonCognitoIdentity.CognitoUser(userData);
+          
+          cognitoUser.authenticateUser(authenticationDetails, {
+              onSuccess: function (result) {
+                  var accessToken = result.getAccessToken().getJwtToken();
+  
+                // location.href = "index.php";
+                location.href = "index.php?auth=1";
+              },
+      
+              onFailure: function(err) {
+                  alert(err.message || JSON.stringify(err));
+              },
+          });
+        }
+      </script>
+
+    <script src="script.js"></script>
+    <script src="jquery-3.6.0.js"></script>
+</body>
+</html>

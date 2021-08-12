@@ -1,0 +1,159 @@
+/* Fonts */
+@font-face {
+    font-family: oswald;
+    src: url(assets/fonts/Oswald-Bold.ttf);
+}
+@font-face{
+    font-family: 'Open Sans', sans-serif;
+    src: url('https://fonts.googleapis.com/css2?family=Open+Sans:ital@1&display=swap');
+}
+@font-face{
+    font-family: 'Cabin', sans-serif;
+    src: url(assets/fonts/Cabin-Bold.ttf);
+}
+
+.div{
+    overflow: visible;
+}
+/* Background image */
+html { 
+    background: url(assets/image/observation-urban-building-business-steel.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+.button{
+    color: black;
+    border: 0px;
+    /* animation: fadeIn 3s; */
+    padding: 10px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: rgba(255, 255, 255, 1);
+    -webkit-text-stroke: 1px;
+}
+
+.button:hover{
+    background-color: rgb(200, 220, 253);
+}
+
+.register{
+    font-size: 30px;
+    margin-top: 150px;
+    margin-left: -150px;
+    border-radius: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.login{
+    font-size: 30px;
+    margin-top: 150px;
+    margin-left: 150px;
+    border-radius: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+  /* Text intro */
+.intro{
+    /* background-image: url(assets/image/observation-urban-building-business-steel.jpg);
+    background-size: cover;
+    background-repeat: no-repeat; */
+    color: white;
+    animation: fadeIn 3s;
+    font-family: oswald;
+    font-size: 100px;
+    position: fixed;
+    padding: 20px;
+    width: 1500px;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    -webkit-text-stroke: 2px black;
+}
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+/* Login Box */
+.loginbox{
+    font-size: 15px;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-align: center;
+    background-color: rgba(230, 242, 255, 0.9);
+    padding: 30px;
+    width: 400px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 20px;
+    /* max-width: 1000px; */
+    /* -moz-animation: cssAnimation 0s ease-in 3.5s forwards;
+    -webkit-animation: cssAnimation 0s ease-in 3.5s forwards;
+    animation: cssAnimation 0s ease-in 3.5s forwards;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    visibility: hidden; */
+}
+
+/* @keyframes cssAnimation{
+    to{visibility: visible;}
+} */
+
+.registerbox{
+    font-size: 15px;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-align: center;
+    background-color: rgba(230, 242, 255, 0.9);
+    padding: 30px;
+    position: fixed;
+    width: 400px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 20px;
+}
+
+#logintext{
+    font-size: 40px;
+}
+
+.email{
+    padding: 20px;
+}
+
+.inputcol{
+    width: auto;
+    padding: 2%;
+    font-size: 35px;
+}
+
+.btn{
+    font-family: sans-serif;
+    font-size: 20px;
+    padding: 10px 20px;
+    margin-top: 50px;
+    size: 30px;
+}
+
+.password{
+    padding: 10px;
+}
